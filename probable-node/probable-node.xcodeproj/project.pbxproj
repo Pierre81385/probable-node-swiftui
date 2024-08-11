@@ -18,7 +18,7 @@
 		B138EBA32C6843B7000C0A98 /* AWSDynamoDB in Frameworks */ = {isa = PBXBuildFile; productRef = B138EBA22C6843B7000C0A98 /* AWSDynamoDB */; };
 		B138EBA52C6843B7000C0A98 /* AWSRekognition in Frameworks */ = {isa = PBXBuildFile; productRef = B138EBA42C6843B7000C0A98 /* AWSRekognition */; };
 		B138EBA72C6843B7000C0A98 /* AWSS3 in Frameworks */ = {isa = PBXBuildFile; productRef = B138EBA62C6843B7000C0A98 /* AWSS3 */; };
-		B138EBAA2C684430000C0A98 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B138EBA92C684430000C0A98 /* ImagePicker.swift */; };
+		B138EBAA2C684430000C0A98 /* ImageRekognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B138EBA92C684430000C0A98 /* ImageRekognition.swift */; };
 		B138EBAC2C6865D7000C0A98 /* AWS.plist in Resources */ = {isa = PBXBuildFile; fileRef = B138EBAB2C6865D7000C0A98 /* AWS.plist */; };
 		D6365242CAB6554F1BF77F5B /* Pods_probable_node.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53B6FC0281ED30BDDAC2003F /* Pods_probable_node.framework */; };
 /* End PBXBuildFile section */
@@ -33,7 +33,7 @@
 		B1336ED42C683AF2003C632E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1336ED72C683AF2003C632E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B1336EDE2C683B7E003C632E /* SocketIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIO.swift; sourceTree = "<group>"; };
-		B138EBA92C684430000C0A98 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		B138EBA92C684430000C0A98 /* ImageRekognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRekognition.swift; sourceTree = "<group>"; };
 		B138EBAB2C6865D7000C0A98 /* AWS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AWS.plist; sourceTree = "<group>"; };
 		F3A7AB539898021E3B057914 /* Pods-probable-node.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-probable-node.release.xcconfig"; path = "Target Support Files/Pods-probable-node/Pods-probable-node.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,7 +107,7 @@
 		B138EBA82C684420000C0A98 /* Rekognition */ = {
 			isa = PBXGroup;
 			children = (
-				B138EBA92C684430000C0A98 /* ImagePicker.swift */,
+				B138EBA92C684430000C0A98 /* ImageRekognition.swift */,
 			);
 			path = Rekognition;
 			sourceTree = "<group>";
@@ -231,7 +231,7 @@
 			files = (
 				B1336ED12C683AF1003C632E /* ContentView.swift in Sources */,
 				B1336ED32C683AF1003C632E /* Item.swift in Sources */,
-				B138EBAA2C684430000C0A98 /* ImagePicker.swift in Sources */,
+				B138EBAA2C684430000C0A98 /* ImageRekognition.swift in Sources */,
 				B1336EDF2C683B7E003C632E /* SocketIO.swift in Sources */,
 				B1336ECF2C683AF1003C632E /* probable_nodeApp.swift in Sources */,
 			);

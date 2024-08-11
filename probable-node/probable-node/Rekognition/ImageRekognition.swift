@@ -34,9 +34,9 @@ struct ImageRekognition: View {
                                         .aspectRatio(contentMode: .fit)
                                         .frame(width: 300, height: 300)
                                 Button("Analyze Image") {
-                                                if let image = selectedImage {
+                                                
                                                     analyzeImage(image: uiImage)
-                                                }
+                                                
                                             }
                                             
                                             List(labels, id: \.self) {
