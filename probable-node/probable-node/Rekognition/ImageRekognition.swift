@@ -8,6 +8,7 @@
 import SwiftUI
 import AWSRekognition
 import PhotosUI
+import Vision
 
 struct ImageRekognition: View {
     @State private var selectedImage: PhotosPickerItem? = nil
@@ -16,6 +17,7 @@ struct ImageRekognition: View {
     @State private var selectToggle: Bool = false
     @State private var isImagePickerPresented = false
     @State private var labels: [String] = []
+    @State private var smileDetection: String = ""
     
     var body: some View {
         VStack {
@@ -33,11 +35,14 @@ struct ImageRekognition: View {
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
                                         .frame(width: 300, height: 300)
+                                
                                 Button("Analyze Image") {
                                                 
-                                                    analyzeImage(image: uiImage)
+                                                    faceDetection(image: uiImage)
                                                 
                                             }
+                                Text(smileDetection)
+                                
                                             
                                             List(labels, id: \.self) {
                                                 Text($0)
@@ -97,6 +102,24 @@ struct ImageRekognition: View {
             }
         }
     }
+    
+    func faceDetection(image: UIImage) {
+        guard let imageData = image.jpegData(compressionQuality: 0.7) else { return }
+        
+        let rekognition = AWSRekognition.default()
+        let request = AWSRekognitionDetectFacesRequest()!
+        request.image = AWSRekognitionImage()
+        request.image?.bytes = imageData
+
+        rekognition.detectFaces(request) { (result, error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+            } else if let detail = result?.faceDetails {
+                print(String(describing: detail[0]))
+            }
+        }
+    }
+    
 }
 
 #Preview {
