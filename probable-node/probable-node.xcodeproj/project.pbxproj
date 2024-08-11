@@ -14,9 +14,17 @@
 		B1336ED82C683AF2003C632E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1336ED72C683AF2003C632E /* Preview Assets.xcassets */; };
 		B1336EDF2C683B7E003C632E /* SocketIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1336EDE2C683B7E003C632E /* SocketIO.swift */; };
 		B1336EE22C683BB4003C632E /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = B1336EE12C683BB4003C632E /* SocketIO */; };
+		B138EBA12C6843B7000C0A98 /* AWSCore in Frameworks */ = {isa = PBXBuildFile; productRef = B138EBA02C6843B7000C0A98 /* AWSCore */; };
+		B138EBA32C6843B7000C0A98 /* AWSDynamoDB in Frameworks */ = {isa = PBXBuildFile; productRef = B138EBA22C6843B7000C0A98 /* AWSDynamoDB */; };
+		B138EBA52C6843B7000C0A98 /* AWSRekognition in Frameworks */ = {isa = PBXBuildFile; productRef = B138EBA42C6843B7000C0A98 /* AWSRekognition */; };
+		B138EBA72C6843B7000C0A98 /* AWSS3 in Frameworks */ = {isa = PBXBuildFile; productRef = B138EBA62C6843B7000C0A98 /* AWSS3 */; };
+		B138EBAA2C684430000C0A98 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B138EBA92C684430000C0A98 /* ImagePicker.swift */; };
+		D6365242CAB6554F1BF77F5B /* Pods_probable_node.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53B6FC0281ED30BDDAC2003F /* Pods_probable_node.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A523BD7BCBF1B0058366CD1 /* Pods-probable-node.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-probable-node.debug.xcconfig"; path = "Target Support Files/Pods-probable-node/Pods-probable-node.debug.xcconfig"; sourceTree = "<group>"; };
+		53B6FC0281ED30BDDAC2003F /* Pods_probable_node.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_probable_node.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1336ECB2C683AF1003C632E /* probable-node.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "probable-node.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1336ECE2C683AF1003C632E /* probable_nodeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = probable_nodeApp.swift; sourceTree = "<group>"; };
 		B1336ED02C683AF1003C632E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -24,6 +32,8 @@
 		B1336ED42C683AF2003C632E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1336ED72C683AF2003C632E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B1336EDE2C683B7E003C632E /* SocketIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIO.swift; sourceTree = "<group>"; };
+		B138EBA92C684430000C0A98 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		F3A7AB539898021E3B057914 /* Pods-probable-node.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-probable-node.release.xcconfig"; path = "Target Support Files/Pods-probable-node/Pods-probable-node.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,18 +41,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B138EBA72C6843B7000C0A98 /* AWSS3 in Frameworks */,
+				B138EBA52C6843B7000C0A98 /* AWSRekognition in Frameworks */,
+				B138EBA32C6843B7000C0A98 /* AWSDynamoDB in Frameworks */,
+				B138EBA12C6843B7000C0A98 /* AWSCore in Frameworks */,
 				B1336EE22C683BB4003C632E /* SocketIO in Frameworks */,
+				D6365242CAB6554F1BF77F5B /* Pods_probable_node.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5771B46A6523472D56B4F2A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				53B6FC0281ED30BDDAC2003F /* Pods_probable_node.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B1336EC22C683AF1003C632E = {
 			isa = PBXGroup;
 			children = (
 				B1336ECD2C683AF1003C632E /* probable-node */,
 				B1336ECC2C683AF1003C632E /* Products */,
+				C08A3266BBA39CF14D52F463 /* Pods */,
+				5771B46A6523472D56B4F2A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +85,7 @@
 				B1336ECE2C683AF1003C632E /* probable_nodeApp.swift */,
 				B1336ED02C683AF1003C632E /* ContentView.swift */,
 				B1336EDE2C683B7E003C632E /* SocketIO.swift */,
+				B138EBA82C684420000C0A98 /* Rekognition */,
 				B1336ED22C683AF1003C632E /* Item.swift */,
 				B1336ED42C683AF2003C632E /* Assets.xcassets */,
 				B1336ED62C683AF2003C632E /* Preview Content */,
@@ -75,6 +101,23 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		B138EBA82C684420000C0A98 /* Rekognition */ = {
+			isa = PBXGroup;
+			children = (
+				B138EBA92C684430000C0A98 /* ImagePicker.swift */,
+			);
+			path = Rekognition;
+			sourceTree = "<group>";
+		};
+		C08A3266BBA39CF14D52F463 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3A523BD7BCBF1B0058366CD1 /* Pods-probable-node.debug.xcconfig */,
+				F3A7AB539898021E3B057914 /* Pods-probable-node.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -82,6 +125,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B1336EDB2C683AF2003C632E /* Build configuration list for PBXNativeTarget "probable-node" */;
 			buildPhases = (
+				3182E708066755440C29AAF6 /* [CP] Check Pods Manifest.lock */,
 				B1336EC72C683AF1003C632E /* Sources */,
 				B1336EC82C683AF1003C632E /* Frameworks */,
 				B1336EC92C683AF1003C632E /* Resources */,
@@ -93,6 +137,10 @@
 			name = "probable-node";
 			packageProductDependencies = (
 				B1336EE12C683BB4003C632E /* SocketIO */,
+				B138EBA02C6843B7000C0A98 /* AWSCore */,
+				B138EBA22C6843B7000C0A98 /* AWSDynamoDB */,
+				B138EBA42C6843B7000C0A98 /* AWSRekognition */,
+				B138EBA62C6843B7000C0A98 /* AWSS3 */,
 			);
 			productName = "probable-node";
 			productReference = B1336ECB2C683AF1003C632E /* probable-node.app */;
@@ -124,6 +172,7 @@
 			mainGroup = B1336EC22C683AF1003C632E;
 			packageReferences = (
 				B1336EE02C683BB4003C632E /* XCRemoteSwiftPackageReference "socket" */,
+				B138EB9F2C6843B7000C0A98 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */,
 			);
 			productRefGroup = B1336ECC2C683AF1003C632E /* Products */;
 			projectDirPath = "";
@@ -146,6 +195,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3182E708066755440C29AAF6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-probable-node-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B1336EC72C683AF1003C632E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -153,6 +227,7 @@
 			files = (
 				B1336ED12C683AF1003C632E /* ContentView.swift in Sources */,
 				B1336ED32C683AF1003C632E /* Item.swift in Sources */,
+				B138EBAA2C684430000C0A98 /* ImagePicker.swift in Sources */,
 				B1336EDF2C683B7E003C632E /* SocketIO.swift in Sources */,
 				B1336ECF2C683AF1003C632E /* probable_nodeApp.swift in Sources */,
 			);
@@ -282,6 +357,7 @@
 		};
 		B1336EDC2C683AF2003C632E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A523BD7BCBF1B0058366CD1 /* Pods-probable-node.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -311,6 +387,7 @@
 		};
 		B1336EDD2C683AF2003C632E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3A7AB539898021E3B057914 /* Pods-probable-node.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -370,6 +447,14 @@
 				kind = branch;
 			};
 		};
+		B138EB9F2C6843B7000C0A98 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aws-amplify/aws-sdk-ios-spm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.36.7;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -377,6 +462,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B1336EE02C683BB4003C632E /* XCRemoteSwiftPackageReference "socket" */;
 			productName = SocketIO;
+		};
+		B138EBA02C6843B7000C0A98 /* AWSCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B138EB9F2C6843B7000C0A98 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSCore;
+		};
+		B138EBA22C6843B7000C0A98 /* AWSDynamoDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B138EB9F2C6843B7000C0A98 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSDynamoDB;
+		};
+		B138EBA42C6843B7000C0A98 /* AWSRekognition */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B138EB9F2C6843B7000C0A98 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSRekognition;
+		};
+		B138EBA62C6843B7000C0A98 /* AWSS3 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B138EB9F2C6843B7000C0A98 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSS3;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

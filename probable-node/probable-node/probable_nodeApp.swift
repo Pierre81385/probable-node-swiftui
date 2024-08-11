@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import AWSCore
 
 @main
 struct probable_nodeApp: App {
@@ -22,6 +23,12 @@ struct probable_nodeApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
+    
+    init() {
+        let credentialsProvider = AWSStaticCredentialsProvider(accessKey: "YOUR_ACCESS_KEY", secretKey: "YOUR_SECRET_KEY")
+        let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialsProvider)
+        AWSServiceManager.default().defaultServiceConfiguration = configuration
+    }
 
     var body: some Scene {
         WindowGroup {
