@@ -1,4 +1,5 @@
 const express = require('express');
+const axios = require('axios');
 const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
 const cors = require("cors");
@@ -20,6 +21,9 @@ mongoose.connect(process.env.MONGODB_URI);
 
 const MessageRoutes = require("./routes/MessageRoutes");
 app.use("/message", MessageRoutes);
+
+const GitHubRoutes = require("./routes/gitHubRoutes");
+app.use("/github", GitHubRoutes)
 
 app.get('/', (req, res) => {
     res.send('Hello from Node.js server!');

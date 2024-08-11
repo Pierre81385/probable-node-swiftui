@@ -21,6 +21,7 @@
 		B138EBAA2C684430000C0A98 /* ImageRekognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B138EBA92C684430000C0A98 /* ImageRekognition.swift */; };
 		B138EBAC2C6865D7000C0A98 /* AWS.plist in Resources */ = {isa = PBXBuildFile; fileRef = B138EBAB2C6865D7000C0A98 /* AWS.plist */; };
 		B138EBB02C697192000C0A98 /* GitHub.plist in Resources */ = {isa = PBXBuildFile; fileRef = B138EBAF2C697192000C0A98 /* GitHub.plist */; };
+		B138EBB32C69727C000C0A98 /* GitStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = B138EBB22C69727C000C0A98 /* GitStats.swift */; };
 		D6365242CAB6554F1BF77F5B /* Pods_probable_node.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53B6FC0281ED30BDDAC2003F /* Pods_probable_node.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		B138EBA92C684430000C0A98 /* ImageRekognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRekognition.swift; sourceTree = "<group>"; };
 		B138EBAB2C6865D7000C0A98 /* AWS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AWS.plist; sourceTree = "<group>"; };
 		B138EBAF2C697192000C0A98 /* GitHub.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = GitHub.plist; sourceTree = "<group>"; };
+		B138EBB22C69727C000C0A98 /* GitStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitStats.swift; sourceTree = "<group>"; };
 		F3A7AB539898021E3B057914 /* Pods-probable-node.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-probable-node.release.xcconfig"; path = "Target Support Files/Pods-probable-node/Pods-probable-node.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +92,7 @@
 				B138EBAB2C6865D7000C0A98 /* AWS.plist */,
 				B138EBAF2C697192000C0A98 /* GitHub.plist */,
 				B1336ED02C683AF1003C632E /* ContentView.swift */,
+				B138EBB12C69726B000C0A98 /* GitHub */,
 				B1336EDE2C683B7E003C632E /* SocketIO.swift */,
 				B138EBA82C684420000C0A98 /* Rekognition */,
 				B1336ED22C683AF1003C632E /* Item.swift */,
@@ -113,6 +116,14 @@
 				B138EBA92C684430000C0A98 /* ImageRekognition.swift */,
 			);
 			path = Rekognition;
+			sourceTree = "<group>";
+		};
+		B138EBB12C69726B000C0A98 /* GitHub */ = {
+			isa = PBXGroup;
+			children = (
+				B138EBB22C69727C000C0A98 /* GitStats.swift */,
+			);
+			path = GitHub;
 			sourceTree = "<group>";
 		};
 		C08A3266BBA39CF14D52F463 /* Pods */ = {
@@ -235,6 +246,7 @@
 			files = (
 				B1336ED12C683AF1003C632E /* ContentView.swift in Sources */,
 				B1336ED32C683AF1003C632E /* Item.swift in Sources */,
+				B138EBB32C69727C000C0A98 /* GitStats.swift in Sources */,
 				B138EBAA2C684430000C0A98 /* ImageRekognition.swift in Sources */,
 				B1336EDF2C683B7E003C632E /* SocketIO.swift in Sources */,
 				B1336ECF2C683AF1003C632E /* probable_nodeApp.swift in Sources */,
