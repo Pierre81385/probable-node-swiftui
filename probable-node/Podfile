@@ -6,5 +6,6 @@ target 'probable-node' do
   use_frameworks!
 
   # Pods for probable-node
+  pod 'AWSRekognition'
 
 end
