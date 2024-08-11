@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct GitStats: View {
+    @State var ghManager: GitHubManager = GitHubManager()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/).onAppear{
+                ghManager.getUser()
+            }
+            Text(ghManager.user.login)
+        }
     }
 }
 
