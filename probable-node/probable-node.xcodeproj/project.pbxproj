@@ -24,6 +24,8 @@
 		B138EBB32C69727C000C0A98 /* GitStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = B138EBB22C69727C000C0A98 /* GitStats.swift */; };
 		B138EBB52C697C2D000C0A98 /* ghUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B138EBB42C697C2D000C0A98 /* ghUserModel.swift */; };
 		B138EBB72C697C7E000C0A98 /* GitHubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B138EBB62C697C7E000C0A98 /* GitHubViewModel.swift */; };
+		B138EBB92C69C053000C0A98 /* ghRepoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B138EBB82C69C053000C0A98 /* ghRepoModel.swift */; };
+		B138EBBC2C69C994000C0A98 /* customGroupBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B138EBBB2C69C993000C0A98 /* customGroupBox.swift */; };
 		D6365242CAB6554F1BF77F5B /* Pods_probable_node.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53B6FC0281ED30BDDAC2003F /* Pods_probable_node.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +45,8 @@
 		B138EBB22C69727C000C0A98 /* GitStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitStats.swift; sourceTree = "<group>"; };
 		B138EBB42C697C2D000C0A98 /* ghUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ghUserModel.swift; sourceTree = "<group>"; };
 		B138EBB62C697C7E000C0A98 /* GitHubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubViewModel.swift; sourceTree = "<group>"; };
+		B138EBB82C69C053000C0A98 /* ghRepoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ghRepoModel.swift; sourceTree = "<group>"; };
+		B138EBBB2C69C993000C0A98 /* customGroupBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customGroupBox.swift; sourceTree = "<group>"; };
 		F3A7AB539898021E3B057914 /* Pods-probable-node.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-probable-node.release.xcconfig"; path = "Target Support Files/Pods-probable-node/Pods-probable-node.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,8 +100,9 @@
 				B138EBAB2C6865D7000C0A98 /* AWS.plist */,
 				B138EBAF2C697192000C0A98 /* GitHub.plist */,
 				B1336ED02C683AF1003C632E /* ContentView.swift */,
-				B138EBB12C69726B000C0A98 /* GitHub */,
 				B1336EDE2C683B7E003C632E /* SocketIO.swift */,
+				B138EBBA2C69C6C7000C0A98 /* Components */,
+				B138EBB12C69726B000C0A98 /* GitHub */,
 				B138EBA82C684420000C0A98 /* Rekognition */,
 				B1336ED22C683AF1003C632E /* Item.swift */,
 				B1336ED42C683AF2003C632E /* Assets.xcassets */,
@@ -127,9 +132,18 @@
 			children = (
 				B138EBB22C69727C000C0A98 /* GitStats.swift */,
 				B138EBB42C697C2D000C0A98 /* ghUserModel.swift */,
+				B138EBB82C69C053000C0A98 /* ghRepoModel.swift */,
 				B138EBB62C697C7E000C0A98 /* GitHubViewModel.swift */,
 			);
 			path = GitHub;
+			sourceTree = "<group>";
+		};
+		B138EBBA2C69C6C7000C0A98 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B138EBBB2C69C993000C0A98 /* customGroupBox.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		C08A3266BBA39CF14D52F463 /* Pods */ = {
@@ -251,8 +265,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1336ED12C683AF1003C632E /* ContentView.swift in Sources */,
+				B138EBB92C69C053000C0A98 /* ghRepoModel.swift in Sources */,
 				B1336ED32C683AF1003C632E /* Item.swift in Sources */,
 				B138EBB32C69727C000C0A98 /* GitStats.swift in Sources */,
+				B138EBBC2C69C994000C0A98 /* customGroupBox.swift in Sources */,
 				B138EBAA2C684430000C0A98 /* ImageRekognition.swift in Sources */,
 				B1336EDF2C683B7E003C632E /* SocketIO.swift in Sources */,
 				B1336ECF2C683AF1003C632E /* probable_nodeApp.swift in Sources */,
