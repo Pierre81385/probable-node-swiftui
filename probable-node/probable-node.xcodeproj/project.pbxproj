@@ -26,6 +26,11 @@
 		B138EBB72C697C7E000C0A98 /* GitHubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B138EBB62C697C7E000C0A98 /* GitHubViewModel.swift */; };
 		B138EBB92C69C053000C0A98 /* ghRepoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B138EBB82C69C053000C0A98 /* ghRepoModel.swift */; };
 		B138EBBC2C69C994000C0A98 /* customGroupBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B138EBBB2C69C993000C0A98 /* customGroupBox.swift */; };
+		B138EBBF2C6C11BE000C0A98 /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B138EBBE2C6C11BE000C0A98 /* TeamView.swift */; };
+		B138EBC12C6C1ED8000C0A98 /* TeamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B138EBC02C6C1ED8000C0A98 /* TeamModel.swift */; };
+		B138EBC32C6C1FA6000C0A98 /* TeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B138EBC22C6C1FA6000C0A98 /* TeamViewModel.swift */; };
+		B138EBC72C6C2308000C0A98 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B138EBC62C6C2308000C0A98 /* ImageHelper.swift */; };
+		B138EBCA2C6D027F000C0A98 /* ImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B138EBC92C6D027F000C0A98 /* ImageDetailView.swift */; };
 		D6365242CAB6554F1BF77F5B /* Pods_probable_node.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53B6FC0281ED30BDDAC2003F /* Pods_probable_node.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +52,11 @@
 		B138EBB62C697C7E000C0A98 /* GitHubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubViewModel.swift; sourceTree = "<group>"; };
 		B138EBB82C69C053000C0A98 /* ghRepoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ghRepoModel.swift; sourceTree = "<group>"; };
 		B138EBBB2C69C993000C0A98 /* customGroupBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customGroupBox.swift; sourceTree = "<group>"; };
+		B138EBBE2C6C11BE000C0A98 /* TeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
+		B138EBC02C6C1ED8000C0A98 /* TeamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamModel.swift; sourceTree = "<group>"; };
+		B138EBC22C6C1FA6000C0A98 /* TeamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewModel.swift; sourceTree = "<group>"; };
+		B138EBC62C6C2308000C0A98 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		B138EBC92C6D027F000C0A98 /* ImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailView.swift; sourceTree = "<group>"; };
 		F3A7AB539898021E3B057914 /* Pods-probable-node.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-probable-node.release.xcconfig"; path = "Target Support Files/Pods-probable-node/Pods-probable-node.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,8 +152,37 @@
 			isa = PBXGroup;
 			children = (
 				B138EBBB2C69C993000C0A98 /* customGroupBox.swift */,
+				B138EBC82C6D0230000C0A98 /* ImageDetail */,
+				B138EBC52C6C22FB000C0A98 /* Image */,
+				B138EBC42C6C2039000C0A98 /* Team */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		B138EBC42C6C2039000C0A98 /* Team */ = {
+			isa = PBXGroup;
+			children = (
+				B138EBBE2C6C11BE000C0A98 /* TeamView.swift */,
+				B138EBC02C6C1ED8000C0A98 /* TeamModel.swift */,
+				B138EBC22C6C1FA6000C0A98 /* TeamViewModel.swift */,
+			);
+			path = Team;
+			sourceTree = "<group>";
+		};
+		B138EBC52C6C22FB000C0A98 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				B138EBC62C6C2308000C0A98 /* ImageHelper.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		B138EBC82C6D0230000C0A98 /* ImageDetail */ = {
+			isa = PBXGroup;
+			children = (
+				B138EBC92C6D027F000C0A98 /* ImageDetailView.swift */,
+			);
+			path = ImageDetail;
 			sourceTree = "<group>";
 		};
 		C08A3266BBA39CF14D52F463 /* Pods */ = {
@@ -264,16 +303,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B138EBBF2C6C11BE000C0A98 /* TeamView.swift in Sources */,
 				B1336ED12C683AF1003C632E /* ContentView.swift in Sources */,
+				B138EBC12C6C1ED8000C0A98 /* TeamModel.swift in Sources */,
 				B138EBB92C69C053000C0A98 /* ghRepoModel.swift in Sources */,
 				B1336ED32C683AF1003C632E /* Item.swift in Sources */,
 				B138EBB32C69727C000C0A98 /* GitStats.swift in Sources */,
 				B138EBBC2C69C994000C0A98 /* customGroupBox.swift in Sources */,
 				B138EBAA2C684430000C0A98 /* ImageRekognition.swift in Sources */,
+				B138EBC32C6C1FA6000C0A98 /* TeamViewModel.swift in Sources */,
 				B1336EDF2C683B7E003C632E /* SocketIO.swift in Sources */,
 				B1336ECF2C683AF1003C632E /* probable_nodeApp.swift in Sources */,
 				B138EBB52C697C2D000C0A98 /* ghUserModel.swift in Sources */,
 				B138EBB72C697C7E000C0A98 /* GitHubViewModel.swift in Sources */,
+				B138EBC72C6C2308000C0A98 /* ImageHelper.swift in Sources */,
+				B138EBCA2C6D027F000C0A98 /* ImageDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,3 +1,4 @@
+import 'dart:ui' as UI;
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,8 +11,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'PETER JOHN BISHOP',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -31,7 +33,104 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const HomeView()
+    );
+  }
+}
+
+class HomeView extends StatefulWidget {
+  const HomeView({super.key});
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+
+  final ScrollController _scrollController = ScrollController();
+  final GlobalKey _galleryKey = GlobalKey();
+  final GlobalKey _aboutKey = GlobalKey();
+  final GlobalKey _skillsKey = GlobalKey();
+  final GlobalKey _experienceKey = GlobalKey();
+  final GlobalKey _contactKey = GlobalKey();
+
+  void _scrollToSection(GlobalKey key) {
+    final context = key.currentContext!;
+    Scrollable.ensureVisible(
+      context,
+      duration: Duration(seconds: 1),
+      curve: Curves.easeInOut,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+
+    final UI.Size screenSize = MediaQuery.of(context).size;
+    final double screenWidth = screenSize.width;
+    final double screenHeight = screenSize.height;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: screenWidth < 500 ? Text("PJB") : Text('PETER JOHN BISHOP / full stack developer'),
+        actions: [
+          TextButton(
+            onPressed: () => _scrollToSection(_aboutKey),
+            child: Text('About', style: TextStyle(color: Colors.black)),
+          ),
+          TextButton(
+            onPressed: () => _scrollToSection(_galleryKey),
+            child: Text('Gallery', style: TextStyle(color: Colors.black)),
+          ),
+          TextButton(
+            onPressed: () => _scrollToSection(_skillsKey),
+            child: Text('Skills', style: TextStyle(color: Colors.black)),
+          ),
+          TextButton(
+            onPressed: () => _scrollToSection(_experienceKey),
+            child: Text('Experience', style: TextStyle(color: Colors.black)),
+          ),
+          TextButton(
+            onPressed: () => _scrollToSection(_contactKey),
+            child: Text('Contact', style: TextStyle(color: Colors.black)),
+          ),
+        ],
+      ),
+      body: SingleChildScrollView(
+        controller: _scrollController,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SectionWidget(key: _aboutKey, title: 'About', color: Colors.green.withOpacity(0.3), height: screenHeight,),
+            SectionWidget(key: _galleryKey, title: 'Gallery', color: Colors.white, height: screenHeight,),
+            SectionWidget(key: _skillsKey, title: 'Skills', color: Colors.blue.withOpacity(0.3), height: screenHeight,),
+            SectionWidget(key: _experienceKey, title: 'Experience', color: Colors.teal.withOpacity(0.3), height: screenHeight,),
+            SectionWidget(key: _contactKey, title: 'Contact', color: Colors.red.withOpacity(0.3), height: screenHeight,),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class SectionWidget extends StatelessWidget {
+  final String title;
+  final Color color;
+  final double height;
+
+  const SectionWidget({Key? key, required this.title, required this.color, required this.height}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: height,
+      color: color,
+      child: Center(
+        child: Text(
+          title,
+          style: TextStyle(fontSize: 40, color: Colors.white),
+        ),
+      ),
     );
   }
 }
