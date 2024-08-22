@@ -1,5 +1,10 @@
 import 'dart:ui' as UI;
 import 'package:flutter/material.dart';
+import 'package:probable_node_flutter/about.dart';
+import 'package:probable_node_flutter/contact.dart';
+import 'package:probable_node_flutter/experience.dart';
+import 'package:probable_node_flutter/gallery.dart';
+import 'package:probable_node_flutter/skills.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,10 +47,10 @@ class HomeView extends StatefulWidget {
   const HomeView({super.key});
 
   @override
-  State<HomeView> createState() => _HomeViewState();
+  State<HomeView> createState() => HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class HomeViewState extends State<HomeView> {
 
   final ScrollController _scrollController = ScrollController();
   final GlobalKey _galleryKey = GlobalKey();
@@ -101,11 +106,11 @@ class _HomeViewState extends State<HomeView> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SectionWidget(key: _aboutKey, title: 'About', color: Colors.green.withOpacity(0.3), height: screenHeight,),
-            SectionWidget(key: _galleryKey, title: 'Gallery', color: Colors.white, height: screenHeight,),
-            SectionWidget(key: _skillsKey, title: 'Skills', color: Colors.blue.withOpacity(0.3), height: screenHeight,),
-            SectionWidget(key: _experienceKey, title: 'Experience', color: Colors.teal.withOpacity(0.3), height: screenHeight,),
-            SectionWidget(key: _contactKey, title: 'Contact', color: Colors.red.withOpacity(0.3), height: screenHeight,),
+            SectionWidget(key: _aboutKey, title: 'About', color: Colors.green.withOpacity(0.3), height: screenHeight, width: screenWidth,),
+            SectionWidget(key: _galleryKey, title: 'Gallery', color: Colors.white, height: screenHeight, width: screenWidth,),
+            SectionWidget(key: _skillsKey, title: 'Skills', color: Colors.blue.withOpacity(0.3), height: screenHeight, width: screenWidth,),
+            SectionWidget(key: _experienceKey, title: 'Experience', color: Colors.teal.withOpacity(0.3), height: screenHeight, width: screenWidth,),
+            SectionWidget(key: _contactKey, title: 'Contact', color: Colors.red.withOpacity(0.3), height: screenHeight, width: screenWidth,),
           ],
         ),
       ),
@@ -113,112 +118,61 @@ class _HomeViewState extends State<HomeView> {
   }
 }
 
-class SectionWidget extends StatelessWidget {
+class SectionWidget extends StatefulWidget {
+  const SectionWidget({Key? key, required this.title, required this.color, required this.height, required this.width}) : super(key: key);
+
   final String title;
   final Color color;
   final double height;
-
-  const SectionWidget({Key? key, required this.title, required this.color, required this.height}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: height,
-      color: color,
-      child: Center(
-        child: Text(
-          title,
-          style: TextStyle(fontSize: 40, color: Colors.white),
-        ),
-      ),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
+  final double width;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<SectionWidget> createState() => _SectionWidgetState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class _SectionWidgetState extends State<SectionWidget> {
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+  late double screenWidth;
+  late double screenHeight;
+  late String title;
+  late Color color;
+
+  @override
+  void initState() {
+    screenWidth = widget.width;
+    screenHeight = widget.height;
+    title = widget.title;
+    color = widget.color;
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+    if (widget.key == context.findAncestorStateOfType<HomeViewState>()?._aboutKey) {
+      return AboutView(width: screenWidth, height: screenHeight, title: title, color: color,);
+    } else if (widget.key == context.findAncestorStateOfType<HomeViewState>()?._galleryKey) {
+      return GalleryView(width: screenWidth, height: screenHeight);
+    } else if (widget.key == context.findAncestorStateOfType<HomeViewState>()?._skillsKey) {
+      return SkillsView(width: screenWidth, height: screenHeight, title: title, color: color,);
+    } else if (widget.key == context.findAncestorStateOfType<HomeViewState>()?._experienceKey) {
+      return ExperienceView(width: screenWidth, height: screenHeight, title: title, color: color,);
+    } else if (widget.key == context.findAncestorStateOfType<HomeViewState>()?._contactKey) {
+      return ContactView(width: screenWidth, height: screenHeight, title: title, color: color,);
+    } else {
+      return Container(
+        height: screenHeight,
+        width: screenWidth,
+        color: widget.color,
+        child: Center(
+          child: Text(
+            widget.title,
+            style: TextStyle(fontSize: 24, color: Colors.white),
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+      );
+    }
   }
 }
+
+
+
