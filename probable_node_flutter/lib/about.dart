@@ -15,7 +15,7 @@ class AboutView extends StatefulWidget {
 class _AboutViewState extends State<AboutView> {
   late double screenWidth;
   late double screenHeight;
-      late String title;
+  late String title;
   late Color color;
 
    @override
@@ -36,10 +36,30 @@ class _AboutViewState extends State<AboutView> {
           width: screenWidth,
           color: color,
           child: Center(
-            child: Text(
-              title,
-              style: TextStyle(fontSize: 24, color: Colors.white),
-            ),
+            child: Container(
+                  color: Colors.white,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                       "lib/assets/me.png",
+                        width: MediaQuery.of(context).size.width * 0.5,
+                        height: MediaQuery.of(context).size.height * 0.95,
+                        fit: BoxFit.fitHeight,
+                      ),
+                      const SizedBox(width: 20),
+                      Expanded(
+                        child: Text(
+                          title,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
           ),
         );
   }

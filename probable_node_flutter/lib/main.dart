@@ -51,7 +51,6 @@ class HomeView extends StatefulWidget {
 }
 
 class HomeViewState extends State<HomeView> {
-
   final ScrollController _scrollController = ScrollController();
   final GlobalKey _galleryKey = GlobalKey();
   final GlobalKey _aboutKey = GlobalKey();
@@ -59,8 +58,13 @@ class HomeViewState extends State<HomeView> {
   final GlobalKey _experienceKey = GlobalKey();
   final GlobalKey _contactKey = GlobalKey();
 
-  void _scrollToSection(GlobalKey key) {
+  String _selectedSection = '';
+
+  void _scrollToSection(GlobalKey key, String section) {
     final context = key.currentContext!;
+    setState(() {
+      _selectedSection = section;
+    });
     Scrollable.ensureVisible(
       context,
       duration: Duration(seconds: 1),
@@ -70,34 +74,65 @@ class HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-
     final UI.Size screenSize = MediaQuery.of(context).size;
     final double screenWidth = screenSize.width;
     final double screenHeight = screenSize.height;
 
     return Scaffold(
       appBar: AppBar(
-        title: screenWidth < 500 ? Text("PJB") : Text('PETER JOHN BISHOP / full stack developer'),
+        backgroundColor: Colors.black,
+        title: screenWidth < 500
+            ? Text("PJB", style: TextStyle(
+                color: Colors.white,
+              ))
+            : Text('PETER JOHN BISHOP / full stack developer', style: TextStyle(
+                color: Colors.white,
+              )),
         actions: [
           TextButton(
-            onPressed: () => _scrollToSection(_aboutKey),
-            child: Text('About', style: TextStyle(color: Colors.black)),
+            onPressed: () => _scrollToSection(_aboutKey, 'About'),
+            child: Text(
+              'About',
+              style: TextStyle(
+                color: _selectedSection == 'About' ? Colors.white : Colors.grey,
+              ),
+            ),
           ),
           TextButton(
-            onPressed: () => _scrollToSection(_galleryKey),
-            child: Text('Gallery', style: TextStyle(color: Colors.black)),
+            onPressed: () => _scrollToSection(_galleryKey, 'Gallery'),
+            child: Text(
+              'Gallery',
+              style: TextStyle(
+                color: _selectedSection == 'Gallery' ? Colors.white : Colors.grey,
+              ),
+            ),
           ),
           TextButton(
-            onPressed: () => _scrollToSection(_skillsKey),
-            child: Text('Skills', style: TextStyle(color: Colors.black)),
+            onPressed: () => _scrollToSection(_skillsKey, 'Skills'),
+            child: Text(
+              'Skills',
+              style: TextStyle(
+                color: _selectedSection == 'Skills' ? Colors.white : Colors.grey,
+              ),
+            ),
           ),
           TextButton(
-            onPressed: () => _scrollToSection(_experienceKey),
-            child: Text('Experience', style: TextStyle(color: Colors.black)),
+            onPressed: () => _scrollToSection(_experienceKey, 'Experience'),
+            child: Text(
+              'Experience',
+              style: TextStyle(
+                color: _selectedSection == 'Experience' ? Colors.white : Colors.grey,
+              ),
+            ),
           ),
           TextButton(
-            onPressed: () => _scrollToSection(_contactKey),
-            child: Text('Contact', style: TextStyle(color: Colors.black)),
+            onPressed: () => _scrollToSection(_contactKey, 'Contact'),
+            child: Text(
+              'Contact',
+              style: TextStyle(
+                color: _selectedSection == 'Contact' ? Colors.white : Colors.grey,
+              ),
+            ),
           ),
         ],
       ),
@@ -106,17 +141,48 @@ class HomeViewState extends State<HomeView> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SectionWidget(key: _aboutKey, title: 'About', color: Colors.green.withOpacity(0.3), height: screenHeight, width: screenWidth,),
-            SectionWidget(key: _galleryKey, title: 'Gallery', color: Colors.white, height: screenHeight, width: screenWidth,),
-            SectionWidget(key: _skillsKey, title: 'Skills', color: Colors.blue.withOpacity(0.3), height: screenHeight, width: screenWidth,),
-            SectionWidget(key: _experienceKey, title: 'Experience', color: Colors.teal.withOpacity(0.3), height: screenHeight, width: screenWidth,),
-            SectionWidget(key: _contactKey, title: 'Contact', color: Colors.red.withOpacity(0.3), height: screenHeight, width: screenWidth,),
+            SectionWidget(
+              key: _aboutKey,
+              title: 'About',
+              color: Colors.black,
+              height: screenHeight,
+              width: screenWidth,
+            ),
+            SectionWidget(
+              key: _galleryKey,
+              title: 'Gallery',
+              color: Colors.white,
+              height: screenHeight,
+              width: screenWidth,
+            ),
+            SectionWidget(
+              key: _skillsKey,
+              title: 'Skills',
+              color: Colors.blue.withOpacity(0.3),
+              height: screenHeight,
+              width: screenWidth,
+            ),
+            SectionWidget(
+              key: _experienceKey,
+              title: 'Experience',
+              color: Colors.teal.withOpacity(0.3),
+              height: screenHeight,
+              width: screenWidth,
+            ),
+            SectionWidget(
+              key: _contactKey,
+              title: 'Contact',
+              color: Colors.grey.withOpacity(0.3),
+              height: screenHeight,
+              width: screenWidth,
+            ),
           ],
         ),
       ),
     );
   }
 }
+
 
 class SectionWidget extends StatefulWidget {
   const SectionWidget({Key? key, required this.title, required this.color, required this.height, required this.width}) : super(key: key);

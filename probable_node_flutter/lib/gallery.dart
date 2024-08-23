@@ -1,87 +1,148 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 class GalleryView extends StatefulWidget {
-  final double width;
   final double height;
+  final double width;
 
-  const GalleryView({required this.width, required this.height});
+  const GalleryView({
+    required this.height,
+    required this.width
+  });
 
   @override
-  State<GalleryView> createState() => _GalleryViewState();
+  _GalleryViewState createState() => _GalleryViewState();
 }
 
 class _GalleryViewState extends State<GalleryView> {
-  late double screenWidth;
   late double screenHeight;
-  late PageController _pageController;
-  int _currentPage = 0;
-  late Timer _timer;
+  late double screenWidth;
 
-  final List<String> _imagePaths = [
-    "lib/assets/fulldemo.gif",
-    "lib/assets/basic_demo4.gif",
-    "lib/assets/api_response.gif", // Add more images here
-    "lib/assets/train1.gif",
-    "lib/assets/nightclub.gif",
+  final List<Color> tileColor = [
+    Colors.red.withOpacity(0.8),
+    Colors.purple.withOpacity(0.8),
+    Colors.green.withOpacity(0.8),
+    Colors.blue.withOpacity(0.8),
+    Colors.yellow.withOpacity(0.8),
+    Colors.orange.withOpacity(0.8),
   ];
 
-  @override
-  void initState() {
+  final List<String> projectNames = [
+    "TOTP Authentication", 
+    "Weather Notifications",
+    "RTD / GTFS-RT",
+    "API Response",
+    "0AUTH 2.0 Flow",
+    "OpenWeather Revisited",
+  ];
+  final List<String> imagePaths = [
+    "lib/assets/fulldemo.gif",
+    "lib/assets/basic_demo4.gif",
+    "lib/assets/rtd_ss.png",
+    "lib/assets/api_response.gif",
+    "lib/assets/IMG_1256.png",
+    "lib/assets/weather.gif"
+  ];
+  final List<String> descriptions = [
+    "project 0 descriotion",
+    "project 0 descriotion",
+    "project 0 descriotion",
+    "project 0 descriotion",
+    "project 0 descriotion",
+    "project 0 descriotion"
+  ];
+
+  int? _selectedIndex;
+
+   void initState() {
     screenWidth = widget.width;
     screenHeight = widget.height;
-
-    _pageController = PageController(
-      viewportFraction: 1 / 3, // Display 3 images at a time
-      initialPage: _currentPage,
-    );
-
-    _timer = Timer.periodic(Duration(seconds: 3), (Timer timer) {
-      if (_currentPage < _imagePaths.length - 1) {
-        _currentPage++;
-      } else {
-        _currentPage = 0;
-      }
-
-      _pageController.animateToPage(
-        _currentPage,
-        duration: Duration(milliseconds: 300),
-        curve: Curves.easeIn,
-      );
-    });
-
     super.initState();
   }
 
   @override
-  void dispose() {
-    _pageController.dispose();
-    _timer.cancel();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: screenHeight * 0.8, // Adjust height as needed
+    return Container(
+      height: screenHeight * 1.2,
       width: screenWidth,
-      child: PageView.builder(
-        controller: _pageController,
-        itemCount: _imagePaths.length, // Use the length of the imagePaths array
-        itemBuilder: (context, index) {
-          return Container(
-            margin: EdgeInsets.symmetric(horizontal: 5.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              image: DecorationImage(
-                image: AssetImage(_imagePaths[index]), // Use image from the array
-                fit: BoxFit.cover,
+      color: Colors.white,
+      padding: const EdgeInsets.all(20),
+      child: _selectedIndex == null
+          ? GridView.builder(
+              itemCount: projectNames.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                crossAxisSpacing: 20,
+                mainAxisSpacing: 20,
+                childAspectRatio: 1,
+              ),
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _selectedIndex = index;
+                    });
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(25),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black26,
+                          blurRadius: 4,
+                          offset: Offset(2, 2),
+                        ),
+                      ],
+                    ),
+                    child: Center(
+                      child: Text(
+                        projectNames[index],
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+                );
+              },
+            )
+          : Center(
+              child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _selectedIndex = null;
+                  });
+                },
+                child: Container(
+                  color: Colors.white,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                       imagePaths[_selectedIndex!],
+                        width: MediaQuery.of(context).size.width * 0.4,
+                        height: MediaQuery.of(context).size.height * 0.6,
+                        fit: BoxFit.contain,
+                      ),
+                      const SizedBox(width: 20),
+                      Expanded(
+                        child: Text(
+                          descriptions[_selectedIndex!],
+                          style: const TextStyle(
+                            fontSize: 16,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
-          );
-        },
-      ),
     );
   }
 }
