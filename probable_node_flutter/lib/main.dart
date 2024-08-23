@@ -38,6 +38,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+      debugShowCheckedModeBanner: false,
       home: const HomeView()
     );
   }
@@ -143,7 +144,7 @@ class HomeViewState extends State<HomeView> {
           children: [
             SectionWidget(
               key: _aboutKey,
-              title: 'About',
+              title: 'Hi, I\'m Peter,',
               color: Colors.black,
               height: screenHeight,
               width: screenWidth,
@@ -158,7 +159,7 @@ class HomeViewState extends State<HomeView> {
             SectionWidget(
               key: _skillsKey,
               title: 'Skills',
-              color: Colors.blue.withOpacity(0.3),
+              color: Colors.white,
               height: screenHeight,
               width: screenWidth,
             ),
