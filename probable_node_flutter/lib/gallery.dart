@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 
 class GalleryView extends StatefulWidget {
   final double height;
@@ -7,7 +6,7 @@ class GalleryView extends StatefulWidget {
 
   const GalleryView({
     required this.height,
-    required this.width
+    required this.width,
   });
 
   @override
@@ -18,21 +17,12 @@ class _GalleryViewState extends State<GalleryView> {
   late double screenHeight;
   late double screenWidth;
 
-  final List<Color> tileColor = [
-    Colors.red.withOpacity(0.8),
-    Colors.purple.withOpacity(0.8),
-    Colors.green.withOpacity(0.8),
-    Colors.blue.withOpacity(0.8),
-    Colors.yellow.withOpacity(0.8),
-    Colors.orange.withOpacity(0.8),
-  ];
-
   final List<String> projectNames = [
-    "TOTP Authentication", 
+    "TOTP Authentication",
     "Weather Notifications",
     "RTD / GTFS-RT",
     "API Response",
-    "0AUTH 2.0 Flow",
+    "Nightclub Demo",
     "OpenWeather Revisited",
   ];
   final List<String> imagePaths = [
@@ -40,24 +30,25 @@ class _GalleryViewState extends State<GalleryView> {
     "lib/assets/basic_demo4.gif",
     "lib/assets/rtd_ss.png",
     "lib/assets/api_response.gif",
-    "lib/assets/IMG_1256.png",
+    "lib/assets/nightclub.gif",
     "lib/assets/weather.gif"
   ];
   final List<String> descriptions = [
-    "project 0 descriotion",
-    "project 0 descriotion",
-    "project 0 descriotion",
-    "project 0 descriotion",
-    "project 0 descriotion",
-    "project 0 descriotion"
+    "Curious how TOTP Authentication works I created an Authenticator app after a cowoker asked me why an app might fail to populate the name of our service.  This uses a QR Code scanner to read and extract the secret, and other hidden meta data, along with current timestamp to create a HMAC-SHA1 hash and converting the extracted binary to a 6 digit code. Scanned secrets can be saved in SwiftData and regenerated independently.",
+    "An app to create local push notifications for upcoming temperatues in your area. Weather kit for hourly forecast data. MapKit to get the users current location. Notifications are saved to SwiftData. I heavily modified a tutorial I found online for a circular tile to create the temperature dial. Conversion to C• works as well.",
+    "I found Denver's light rail app really difficult to natigate and when I needed to know where a train was, the process was too complicated. So I downloaded the map and GTFS data and connected to the realtime data feed. In this project I learned out how create a Google Mpa view and draw polylines to indicate a route and provide a marker for each train.",
+    "Wanting an easy way to navigate an extremely large JSON response, I created this to parse each level of a response. The value and type is evaluated to determine how to present the values in an easy to read and navigate",
+    "When I first understood the power of state management in React it was a game changer for UI design and this is still one of the best looking websites I've ever built in my opinion. I wanted to experiment with a horizontal layout that was compact but contained a ton to consume.",
+    "After several years of practice I decided to revist to Weather App we had to build in Bootcamp. This mobile version is much more appealing while using the same OpenWeather API. THe original is still in my repo and I recall having a lot of issues with it on my first try.",
   ];
 
   int? _selectedIndex;
 
-   void initState() {
+  @override
+  void initState() {
+    super.initState();
     screenWidth = widget.width;
     screenHeight = widget.height;
-    super.initState();
   }
 
   @override
@@ -84,65 +75,59 @@ class _GalleryViewState extends State<GalleryView> {
                     });
                   },
                   child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.circular(25),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black26,
-                          blurRadius: 4,
-                          offset: Offset(2, 2),
+                    color: Colors.white,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Image.asset(
+                            imagePaths[index],
+                            width: MediaQuery.of(context).size.width * 0.4,
+                            height: MediaQuery.of(context).size.height * 0.4,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                        const SizedBox(width: 20),
+                        Expanded(
+                          child: Text(
+                            projectNames[index],
+                            style: const TextStyle(
+                              fontSize: 16,
+                              color: Colors.black,
+                            ),
+                          ),
                         ),
                       ],
-                    ),
-                    child: Center(
-                      child: Text(
-                        projectNames[index],
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
                     ),
                   ),
                 );
               },
             )
-          : Center(
-              child: GestureDetector(
-                onTap: () {
-                  setState(() {
-                    _selectedIndex = null;
-                  });
-                },
-                child: Container(
-                  color: Colors.white,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+          : GestureDetector(
+              onTap: () {
+                setState(() {
+                  _selectedIndex = null;
+                });
+              },
+              child: Center(
+                child: Column(
                     children: [
-                      Image.asset(
-                       imagePaths[_selectedIndex!],
-                        width: MediaQuery.of(context).size.width * 0.4,
-                        height: MediaQuery.of(context).size.height * 0.6,
-                        fit: BoxFit.contain,
-                      ),
-                      const SizedBox(width: 20),
-                      Expanded(
-                        child: Text(
-                          descriptions[_selectedIndex!],
-                          style: const TextStyle(
-                            fontSize: 16,
-                            color: Colors.black,
+                      Padding(
+                        padding: const EdgeInsets.all(10),
+                        child:
+                          Image.asset(
+                            imagePaths[_selectedIndex!],
+                            width: MediaQuery.of(context).size.width * 0.7,
+                            height: MediaQuery.of(context).size.height * 0.7,
+                            fit: BoxFit.contain,
                           ),
-                        ),
                       ),
+                      Text(descriptions[_selectedIndex!])
                     ],
-                  ),
+                  )
                 ),
               ),
-            ),
     );
   }
 }
