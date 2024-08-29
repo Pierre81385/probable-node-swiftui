@@ -22,6 +22,7 @@
 		B1CB8B842C80E03200D1D77D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B1CB8B832C80E03200D1D77D /* FirebaseAuth */; };
 		B1CB8B862C80E03200D1D77D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B1CB8B852C80E03200D1D77D /* FirebaseFirestore */; };
 		B1CB8B882C80E03200D1D77D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B1CB8B872C80E03200D1D77D /* FirebaseStorage */; };
+		B1CB8B8A2C80E0E100D1D77D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1CB8B892C80E0E100D1D77D /* GoogleService-Info.plist */; };
 		B1F9108D2C80298A00C8C300 /* probable_node_swiftuiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F9108C2C80298A00C8C300 /* probable_node_swiftuiApp.swift */; };
 		B1F9108F2C80298A00C8C300 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F9108E2C80298A00C8C300 /* ContentView.swift */; };
 		B1F910912C80298A00C8C300 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F910902C80298A00C8C300 /* Item.swift */; };
@@ -44,6 +45,7 @@
 		B1CB8B762C80DF4400D1D77D /* QRGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRGenerator.swift; sourceTree = "<group>"; };
 		B1CB8B772C80DF4400D1D77D /* QRScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanner.swift; sourceTree = "<group>"; };
 		B1CB8B7B2C80DF4C00D1D77D /* DeviceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
+		B1CB8B892C80E0E100D1D77D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B1F910892C80298A00C8C300 /* probable-node-swiftui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "probable-node-swiftui.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1F9108C2C80298A00C8C300 /* probable_node_swiftuiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = probable_node_swiftuiApp.swift; sourceTree = "<group>"; };
 		B1F9108E2C80298A00C8C300 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 		B1F910802C80298A00C8C300 = {
 			isa = PBXGroup;
 			children = (
+				B1CB8B892C80E0E100D1D77D /* GoogleService-Info.plist */,
 				B1F9108B2C80298A00C8C300 /* probable-node-swiftui */,
 				B1F9108A2C80298A00C8C300 /* Products */,
 			);
@@ -219,6 +222,7 @@
 			files = (
 				B1F910962C80298B00C8C300 /* Preview Assets.xcassets in Resources */,
 				B1F910932C80298B00C8C300 /* Assets.xcassets in Resources */,
+				B1CB8B8A2C80E0E100D1D77D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
